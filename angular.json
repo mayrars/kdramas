@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "moviesApp": {
+    "kdramasApp": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/moviesApp",
+            "outputPath": "dist/kdramasApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,9 +27,13 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+				"./node_modules/jquery/dist/jquery.min.js",
+				"./node_modules/bootstrap/dist/js/bootstrap.min.js"
+			]
           },
           "configurations": {
             "production": {
@@ -54,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "moviesApp:build"
+            "browserTarget": "kdramasApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "moviesApp:build:production"
+              "browserTarget": "kdramasApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "moviesApp:build"
+            "browserTarget": "kdramasApp:build"
           }
         },
         "test": {
@@ -99,7 +103,7 @@
         }
       }
     },
-    "moviesApp-e2e": {
+    "kdramasApp-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -107,7 +111,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "moviesApp:serve"
+            "devServerTarget": "kdramasApp:serve"
           }
         },
         "lint": {
@@ -122,5 +126,5 @@
       }
     }
   },
-  "defaultProject": "moviesApp"
+  "defaultProject": "kdramasApp"
 }
