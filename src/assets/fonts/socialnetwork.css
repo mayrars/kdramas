@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'socialnetwork';
+  src:  url('socialnetwork.eot?pimk9r');
+  src:  url('socialnetwork.eot?pimk9r#iefix') format('embedded-opentype'),
+    url('socialnetwork.ttf?pimk9r') format('truetype'),
+    url('socialnetwork.woff?pimk9r') format('woff'),
+    url('socialnetwork.svg?pimk9r#socialnetwork') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-socialnetwork"], [class*=" icon-socialnetwork"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'socialnetwork' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-socialnetworkgoogle3:before {
+  content: "\ea8a";
+}
+.icon-socialnetworkgoogle-plus:before {
+  content: "\ea8b";
+}
+.icon-socialnetworkfacebook:before {
+  content: "\ea90";
+}
+.icon-socialnetworktwitter:before {
+  content: "\ea96";
+}
