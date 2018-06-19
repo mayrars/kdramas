@@ -1,0 +1,37 @@
+<h3>Login</h3>
+<div class="row">
+  <div class="col-md-12 col-md-offset-1">
+    <div class="alert alert-danger alert-dismissible" role="alert" *ngIf="errormail!=''" >
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{errormail}}
+    </div>
+    <form #loginModal="ngForm" (ngSubmit)="onSubmit($event)" class="form__new">
+      <mat-form-field class="form__new_item">
+          <input matInput placeholder="Email" name="mail" class="form__new_item" [(ngModel)]="user.mail" #mail="ngModel" type="email" required>
+          <mat-error *ngIf="mail.invalid">
+              Email is required
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form__new_item">
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password"
+          #password="ngModel" name="password" required>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-error *ngIf="password.invalid">
+              Password is required
+          </mat-error>
+       </mat-form-field>
+
+      <div class="text-right">
+          <div class="row">
+            <div class="col-md-4">
+              <p class="text-left"><a routerLink="/createacount" class="link_account">Create acount</a></p>
+            </div>
+            <div class="col-md-8">
+              <button mat-raised-button color="primary" [disabled]="!loginModal.form.valid">Log in</button>
+              <button mat-raised-button color="accent"  [mat-dialog-close]="true">Cancel</button>
+            </div>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
