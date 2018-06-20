@@ -3,16 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { PrincipalRoutingModule } from './principal-routing.module';
 import { PrincipalComponent } from './principal.component';
-import { MatButtonModule } from "@angular/material";
+import { MatButtonModule, MatCardModule } from "@angular/material";
+import { DramasService } from '../../common/services/dramas.service';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		PrincipalRoutingModule,
-		MatButtonModule
+    MatButtonModule,
+    MatCardModule
 	],
 	declarations: [
 		PrincipalComponent
-	]
+  ],
+  providers: [
+    DramasService
+  ]
+
 })
 export class PrincipalModule { }
