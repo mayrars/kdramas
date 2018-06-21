@@ -2,16 +2,16 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" *ngFor="let drama of dramas ">
     <mat-card class="card__drama">
-      <img mat-card-image src="{{drama.urlimage}}" alt="">
+      <img mat-card-image src="{{drama.data.urlimage}}" alt="">
       <mat-card-header>
         <mat-card-title>
-          <h2>{{drama.title}}</h2>
+          <h2>{{drama.data.title}}</h2>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>{{drama.description | slice:0:100}}</p>
+        <p>{{drama.data.description | slice:0:100}}</p>
         <div class="text-right">
-          <a class="btn btn-dark" href="{{drama.url}}" target="_blank" role="button">Go</a>
+          <a class="btn btn-dark" href="{{drama.data.url}}" target="_blank" role="button">Go</a>
         </div>
       </mat-card-content>
     </mat-card>

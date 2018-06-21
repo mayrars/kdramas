@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
 	<div class="container">
-		<a class="navbar-brand" href="/"><img src="assets/rabbit.png" alt="Movies App" ></a>
+    <a class="navbar-brand"
+      routerLink="/"
+      routerLinkActive="router-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"><img src="assets/rabbit.png" alt="Movies App" ></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" *ngIf="afAuth.authState | async as user;">
 			<mat-icon>menu</mat-icon>
 		</button>
@@ -11,10 +14,16 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavId" *ngIf="afAuth.authState | async as user;">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Actor</a>
+          <a class="nav-link"
+          routerLink="/home/actors"
+          routerLinkActive="router-link-active"
+          [routerLinkActiveOptions]="{ exact: true }">Actors</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Drama</a>
+          <a class="nav-link"
+            routerLink="/home/dramas"
+            routerLinkActive="router-link-active"
+            [routerLinkActiveOptions]="{ exact: true }">Dramas</a>
 				</li>
 			</ul>
 			<button type="button" class="btn btn-primary" (click)="logOut()"  *ngIf="afAuth.authState | async as user;">Logout</button>
