@@ -1,0 +1,22 @@
+.form__new {
+	.form__new_item {
+		width: 90%;
+		display: block;
+	}
+	.buttons_item {
+		button {
+			margin-right: 10px;
+		}
+	}
+	.drama__spinner {
+		margin: 0 auto;
+	}
+}
+.image__drama {
+	width: 100%;
+}
+.delete__button {
+	position: absolute;
+	right: 30px;
+	top: 20px;
+}

@@ -1,0 +1,73 @@
+<h1>{{drama.title}}</h1>
+<div *ngIf="progress">
+	<mat-progress-spinner mode="indeterminate" style="margin:0 auto;"></mat-progress-spinner>
+</div>
+
+<div class="row" *ngIf="!progress">
+	<div class="col-md-4 mt-2">
+		{{files}}
+		<div *ngIf="drama.urlimage!='' && !progress">
+			<button color="primary" class="delete__button" mat-mini-fab (click)="deleteLinkImage($event)">
+				<mat-icon aria-label="Delete Image">delete</mat-icon>
+			</button>
+			<img src="{{drama.urlimage}}" class="image__drama" alt="">
+		</div>
+		<div *ngIf="drama.urlimage=='' && !progress">
+			<ngx-dropfiles [dropFilesMessage]="'Drag a file here or browse to upload.'" class="dropfiles" [acceptedFiles]="'.png,.jpg'"
+			 (filesDroppped)="manageFiles($event)" (filesDroppedError)="manageFilesError($event)"></ngx-dropfiles>
+			<mat-progress-bar *ngIf="loadimage" color="accent" mode="determinate" value="{{uploadPercent}}"></mat-progress-bar>
+			<div class="files-drop-messages">{{erroresUpload}}</div>
+		</div>
+	</div>
+	<div class="col-md-8">
+		<form #dramaForm="ngForm" (ngSubmit)="onSubmit($event)" class="form__new">
+			<mat-form-field class="form__new_item">
+				<input matInput placeholder="Title" name="title" required [(ngModel)]="drama.title" #title="ngModel">
+				<mat-error *ngIf="title.invalid">
+					Title is required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="form__new_item">
+				<textarea matInput #description="ngModel" name="description" [(ngModel)]="drama.description" required placeholder="Description"
+				 maxlength="256"></textarea>
+				<mat-error *ngIf="description.invalid">
+					Description is required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="form__new_item">
+				<input matInput name="episodes" #episodes="ngModel" id="episodes" type="number" placeholder="Episodes" maxLength="3" [(ngModel)]="drama.episodes"
+				 required>
+				<mat-error *ngIf="episodes.invalid">
+					Episodes is required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="form__new_item">
+				<input matInput name="Genre" #genre="ngModel" id="genre" type="text" required placeholder="Genre" maxLength="100" [(ngModel)]="drama.genre">
+				<mat-error *ngIf="genre.invalid">
+					Genre is required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="form__new_item">
+				<input matInput name="emission_date" #emission_date="ngModel" id="emission_date" type="text" required placeholder="Emission date"
+				 [(ngModel)]="drama.emission_date">
+				<mat-error *ngIf="emission_date.invalid">
+					Emission date is required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field class="form__new_item">
+				<input matInput name="url" placeholder="URL" value="" #url="ngModel" required [(ngModel)]="drama.url">
+				<mat-error *ngIf="url.invalid">The URL is indespensable</mat-error>
+			</mat-form-field>
+			<div class="buttons_item text-right">
+				<button mat-raised-button color="accent" [disabled]="dramaForm.form.hasErrors">
+					<mat-icon class="mat-18">save</mat-icon>
+					Save
+				</button>
+				<button mat-raised-button (click)="cancel($event)" color="primary">
+					<mat-icon class="mat-18">clear</mat-icon>
+					Cancel
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
