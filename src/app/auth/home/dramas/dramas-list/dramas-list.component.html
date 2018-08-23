@@ -12,6 +12,8 @@
 					</mat-card-title>
 				</mat-card-header>
 				<mat-card-content>
+					<!--Add the image-->
+					<img src="{{drama.data.urlimage}}" style="width:100%; height: auto">
 					<p>{{drama.data.description | slice:0:100}}</p>
 					<div class="text-right">
 						<button mat-mini-fab color="accent" (click)="deleteDrama(drama.key)">
