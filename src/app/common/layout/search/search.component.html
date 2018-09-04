@@ -1,0 +1,14 @@
+<div class="search__drama">
+	<mat-form-field class="content__drama">
+		<input [formControl]="search" matInput placeholder="Search drama..." value="" [matAutocomplete]="dramas" name="search" (keyup)="searchdrama($event)">
+		<mat-icon matSuffix>search</mat-icon>
+		<mat-autocomplete #dramas="matAutocomplete">
+			<mat-option *ngIf="errorList">Your search returned no matches.</mat-option>
+			<mat-option *ngFor="let drama of dramasList" [value]="drama.Title" class="drama__option">
+				<a (click)="openDialog(drama.imdbID)">
+					<img src="{{drama.Poster=='N/A' ? 'assets/not-image.jpg' : drama.Poster}}"> {{drama.Title}}
+				</a>
+			</mat-option>
+		</mat-autocomplete>
+	</mat-form-field>
+</div>
