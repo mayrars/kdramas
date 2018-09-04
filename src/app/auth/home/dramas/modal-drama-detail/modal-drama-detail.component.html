@@ -1,0 +1,26 @@
+<div class="dialog__view">
+	<div *ngIf="progress">
+		<mat-progress-spinner mode="indeterminate" style="margin:0 auto;"></mat-progress-spinner>
+	</div>
+	<div *ngIf="!progress">
+		<h1>{{drama.Title}}</h1>
+		<div class="container drama__container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
+					<img src="{{drama.Poster=='N/A' ? 'assets/not-image.jpg' : drama.Poster}}" />
+				</div>
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<p>Year: {{drama.Year}}</p>
+					<p>Genre: {{drama.Genre}}</p>
+					<p>Director: {{drama.Director}}</p>
+					<p>Actors: {{drama.Actors}}</p>
+					<p>Language: {{drama.Language}}</p>
+					<p>Plot: {{drama.Plot}}</p>
+					<div>
+						<button mat-raised-button color="primary" (click)="addDrama($event)">Add</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
