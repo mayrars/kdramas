@@ -11,13 +11,11 @@ import { AngularFireStorageModule } from "angularfire2/storage"
 import { NgxDropfilesModule } from "ngx-dropfiles"
 import {
 	MatCardModule,
-	MatButtonModule,
 	MatIconModule,
 	MatInputModule,
 	MatFormFieldModule,
 	MatDatepickerModule,
 	MatNativeDateModule,
-	MatProgressSpinnerModule,
 	MatProgressBarModule
 } from "@angular/material"
 
@@ -26,7 +24,6 @@ import {
 		CommonModule,
 		DramasRoutingModule,
 		MatCardModule,
-		MatButtonModule,
 		MatIconModule,
 		NgxDropfilesModule,
 		FormsModule,
@@ -36,7 +33,6 @@ import {
 		MatDatepickerModule,
 		MatNativeDateModule,
 		AngularFireStorageModule,
-		MatProgressSpinnerModule,
 		MatProgressBarModule
 	],
 	declarations: [
